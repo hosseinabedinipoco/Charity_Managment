@@ -17,4 +17,25 @@ class Benefactor(models.Model):
     experience = models.SmallIntegerField(default=0, choices=LEVEL)
     free_time_per_week = models.PositiveIntegerField(default=0)
 
-        
+class Task(models.Model):
+    GENDER = (
+        ('f', 'famale'),
+        ('m', 'male')
+    )
+    STATUS = (
+        ('P', 'pending'),
+        ('W', "waited"),
+        ('A', 'assigend'),
+        ('D', 'done'),
+    )
+    assigned_benefactor = models.ForeignKey(Benefactor, on_delete=models.DO_NOTHING, null=True)
+    charity = models.ForeignKey(Charity, on_delete=models.CASCADE)
+    age_limit_from = models.IntegerField(null=True)
+    age_limit_to = models.IntegerField(null=True)
+    date = models.DateField()
+    description = models.TextField(null=True)
+    gender_limit = models.CharField(max_length=1, null=True, choices=GENDER)
+    state = models.CharField(max_length=1, default='P', choices=STATUS)
+    title = models.CharField(max_length=60)
+
+       
