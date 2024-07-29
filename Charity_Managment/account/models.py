@@ -13,7 +13,7 @@ class User(AbstractUser):
     age = models.PositiveSmallIntegerField(null=True)
     description = models.TextField(null=True)
     email = models.EmailField(null=True)
-    date_joined = models.DateTimeField()
+    date_joined = models.DateTimeField(null=True)
     first_name = models.CharField(max_length=20, null=True)
     gender = models.CharField(max_length=1, choices=GENDER, null=True)
     is_active = models.BooleanField(default=True)
