@@ -1,5 +1,6 @@
 from django.db import models
 from account.models import User
+from django.db.models import Q
 # Create your models here.
 
 class Charity(models.Model):
@@ -24,6 +25,8 @@ class TaskManager(models.Manager):
     def related_tasks_to_benefactor(self, user):
         return self.filter(assigned_benefactor__user=user)
     
+    def all_related_tasks_to_user(self, user):
+        return self.filter(Q(charity__user=user) | Q(assigned_benefactor__user=user) | Q(state='P'))
 
 class Task(models.Model):
     GENDER = (
