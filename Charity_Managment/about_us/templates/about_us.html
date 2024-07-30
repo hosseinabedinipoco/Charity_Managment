@@ -4,9 +4,9 @@
     <h2 class="text-center my-5">نیکوکاران و اعضای خیریه‌ها</h2>
     <div class="container">
         <div class="d-flex flex-wrap justify-content-around">
-            <div>
+            <div style="display: flex; gap: 20px;">
                 {% for user in users %}
-                    user.get
+                    <p>{{ user.first_name }} {{ user.last_name }}</p>
                 {% endfor %}
             </div>
         </div>

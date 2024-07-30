@@ -7,4 +7,4 @@ def about_us(request):
         users = User.objects.all()
         return render(request, 'about_us.html', {'users':users})
     else:
-        return 'mehod not allowed'
+        return 'mehod not allowed'  
