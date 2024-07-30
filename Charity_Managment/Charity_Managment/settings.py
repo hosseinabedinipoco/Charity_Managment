@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
-    'Charity.apps.CharityConfig'
+    'Charity.apps.CharityConfig',
+    'about_us.apps.AboutUsConfig',
 ]
 
 MIDDLEWARE = [
