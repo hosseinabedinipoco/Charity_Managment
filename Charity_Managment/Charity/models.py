@@ -18,8 +18,9 @@ class Benefactor(models.Model):
     free_time_per_week = models.PositiveIntegerField(default=0)
 
 class TaskManager(models.Manager):
-    def index():
-        return None
+    def related_tasks_to_charity(self, user):
+        return self.filter(charity__user=user)
+
 
 class Task(models.Model):
     GENDER = (
