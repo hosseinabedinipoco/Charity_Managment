@@ -21,6 +21,9 @@ class TaskManager(models.Manager):
     def related_tasks_to_charity(self, user):
         return self.filter(charity__user=user)
 
+    def related_tasks_to_benefactor(self, user):
+        return self.filter(assigned_benefactor__user=user)
+    
 
 class Task(models.Model):
     GENDER = (
