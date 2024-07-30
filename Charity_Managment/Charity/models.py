@@ -17,6 +17,10 @@ class Benefactor(models.Model):
     experience = models.SmallIntegerField(default=0, choices=LEVEL)
     free_time_per_week = models.PositiveIntegerField(default=0)
 
+class TaskManager(models.Manager):
+    def index():
+        return None
+
 class Task(models.Model):
     GENDER = (
         ('f', 'famale'),
@@ -37,5 +41,5 @@ class Task(models.Model):
     gender_limit = models.CharField(max_length=1, null=True, choices=GENDER)
     state = models.CharField(max_length=1, default='P', choices=STATUS)
     title = models.CharField(max_length=60)
-
+    objects = TaskManager()
        
